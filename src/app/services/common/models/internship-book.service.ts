@@ -24,14 +24,15 @@ export class InternshipBookService {
         // Hata işleme
         console.error('Bir hata oluştu:', error);
         throw error;
-      })
+      },)
     )};
 
   uploadFile(file: File): Observable<any> {
     const formData: FormData = new FormData();
     formData.append('file', file, file.name);
+    formData.append("InternshipId","30000000-0000-0000-0000-000000000000")
 
-    return this.http.post<any>(`${this.baseUrl}/Internship/UploadInternshipBook`, formData);
+    return this.http.post<any>(`https://imsprojectapi.azurewebsites.net/api/Internship/UploadInternshipBook`, formData);
   }
 
   deleteFile(fileId: string): Observable<any> {
