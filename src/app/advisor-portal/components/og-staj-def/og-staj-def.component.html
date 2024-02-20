@@ -1,48 +1,30 @@
-<mat-drawer-container class="og-bilgi-create">
-    <mat-drawer-content>
-        <div class="mat-elevation-z8">
-            <table mat-table [dataSource]="dataSource">
-
-              <!-- Student No Column -->
-              <ng-container matColumnDef="StudentNo">
-                <th mat-header-cell *matHeaderCellDef> Student No </th>
-                <td mat-cell *matCellDef="let element"> {{ element.studentNo }} </td>
-              </ng-container>
-          
-              <!-- Student Name Column -->
-              <ng-container matColumnDef="StudentName">
-                <th mat-header-cell *matHeaderCellDef> Student Name </th>
-                <td mat-cell *matCellDef="let element"> {{ element.studentName }} </td>
-              </ng-container>
-           
-              <!-- Department Name Column -->
-              <ng-container matColumnDef="DepartmentName">
-                <th mat-header-cell *matHeaderCellDef> Department Name </th>
-                <td mat-cell *matCellDef="let element"> {{ element.departmentName }} </td>
-              </ng-container>
-                   
-              <!-- Address Column -->
-              <ng-container matColumnDef="notebookUrl">
-                <th mat-header-cell *matHeaderCellDef> Notebook Url </th>
-                <td mat-cell *matCellDef="let element"> {{ element.notebookUrl }} </td>
-              </ng-container>
-          
-              <!-- Email Column -->
-              <ng-container matColumnDef="approvalStatus">
-                <th mat-header-cell *matHeaderCellDef> Approval Status </th>
-                <td mat-cell *matCellDef="let element"> {{ element.approvalStatus }} </td>
-              </ng-container>
-          
-              <!-- Header and Row Definitions -->
-              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-            </table>
-          
-            <!-- Paginator -->
-            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of elements">
-            </mat-paginator>
+<div class="container">
+  <h2>Staj Defteri ve Onaylama</h2>
+  <ul class="responsive-table">
+      <li class="table-header">
+          <div class="col col-1">Öğrenci No</div>
+          <div class="col col-2">Öğrenci İsmi</div>
+          <div class="col col-3">Bölümü</div>
+          <div class="col col-4">Staj Defteri</div>
+          <div class="col col-5">Yoklama Çizelgesi</div>
+          <div class="col col-6">Haftalık Tablo</div>
+          <div class="col col-7">Staj Onay Durumu</div>
+          <div class="col col-8">Gönder</div>
+      </li>
+      <li class="table-row">
+          <div class="col col-1" data-label="Student No">123456</div>
+          <div class="col col-2" data-label="Student Name">John Doe</div>
+          <div class="col col-3" data-label="Department">Computer Engineering</div>
+          <div class="col col-4" data-label="Student Notebook"><a href="#">Görüntüle</a></div>
+          <div class="col col-7" data-label="Approval">
+              <select name="approval_status">
+                  <option value="onayla">Onayla</option>
+                  <option value="onaylama">Onaylama</option>
+              </select>
           </div>
-          
-    </mat-drawer-content>
-  </mat-drawer-container>
-  
+          <div class="col col-8" data-label="Send">
+              <input type="submit" value="Gönder">
+          </div>
+      </li>
+  </ul>
+</div>
