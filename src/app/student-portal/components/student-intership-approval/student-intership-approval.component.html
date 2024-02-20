@@ -1,20 +1,27 @@
+<!-- student-intership-approval.component.html -->
+
 <div class="container">
   <h2>Yapılan Stajlar ve Onay Durumu</h2>
   <ul class="responsive-table">
     <li class="table-header">
-      <div class="col">Staj Sayısı</div>
+      <div class="col">Staj Numarası</div>
       <div class="col">Öğrenci İsmi</div>
-      <div class="col">İş yeri İsmi</div>
-      <div class="col">Onaylama Durumu</div>
+      <div class="col">İş Yeri İsmi</div>
+      <div class="col">Staj Seviyesi</div>
       <div class="col">Dosya Yükleme</div>
+      <div class="col">Dosya Silme</div>
     </li>
-    <li class="table-row">
-      <div class="col" data-label="staj no">1</div>
-      <div class="col" data-label="Student Name">Ayça</div>
-      <div class="col" data-label="Work place">Arçelik</div>
-      <div class="col" data-label="Approval">Onay</div>
-      <div class="col" data-label="File Upload">
-        <app-file-upload [options]="fileUploadOptions"></app-file-upload>
+    <li class="table-row" *ngIf= "internshipInfo">
+      <div class="col" data-label="Staj Numarası">{{ internshipInfo.id }}</div>
+      <div class="col" data-label="Öğrenci İsmi">{{ internshipInfo.fullName }}</div>
+      <div class="col" data-label="İş Yeri İsmi">{{ internshipInfo.companyName }}</div>
+      <div class="col" data-label="Staj Seviyesi">{{(internshipInfo.level) }}</div>
+      <div class="col" data-label="Dosya Yükleme">
+        <input type="file" (change)="onFileSelected($event)" />
+        <button (click)="uploadFile()">Dosya Yükle</button>
+      </div>
+      <div class="col" data-label="File Delete"> <!-- Yeni eklenen kısım -->
+        <button (click)="deleteFile()">Sil</button>
       </div>
     </li>
   </ul>

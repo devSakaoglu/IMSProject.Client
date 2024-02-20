@@ -11,7 +11,7 @@ describe('StudentIntershipApprovalComponent', () => {
       declarations: [StudentIntershipApprovalComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(StudentIntershipApprovalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
