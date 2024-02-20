@@ -39,13 +39,13 @@ import { MatDialogModule } from '@angular/material/dialog';
     JwtModule.forRoot({
       config: {
         tokenGetter: () => localStorage.getItem("accessToken"),
-        allowedDomains:["https://imsprojectapi.azurewebsites.net/api"]
+        allowedDomains:["https://localhost:7165/api"]
       }
     }),
     
   ],
   providers: [
-    {provide: "baseUrl", useValue: "https://imsprojectapi.azurewebsites.net/api",multi:true }
+    {provide: "baseUrl", useValue: "https://localhost:7165/api",multi:true }
   ],
   bootstrap: [AppComponent]
 })

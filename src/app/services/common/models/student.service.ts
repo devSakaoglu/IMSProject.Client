@@ -11,7 +11,7 @@ export class StudentService {
    
     userID: string | null = localStorage.getItem("userID");
    
-    private apiUrl = `https://imsprojectapi.azurewebsites.net/Student/GetStudentById?Id=${this.userID}`; // API URL'sini buraya yerleştirin
+    private apiUrl = `https://imsprojectapi.azurewebsites.net/api/Student/GetStudentById?Id=${this.userID}`; // API URL'sini buraya yerleştirin
 
   constructor(private http: HttpClient) {}
 
