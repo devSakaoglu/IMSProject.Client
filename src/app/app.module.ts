@@ -17,6 +17,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { MatDialogModule } from '@angular/material/dialog';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,20 +33,19 @@ import { MatDialogModule } from '@angular/material/dialog';
     StudentPortalModule,
     AdvisorPortalModule,
     NgxSpinnerModule,
-    MatDialogModule,
     HttpClientModule,  
     ToastrModule.forRoot(),  
     MatDialogModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: () => localStorage.getItem("accessToken"),
-        allowedDomains:["https://localhost:7165/api"]
+        allowedDomains:["https://imsprojectapi.azurewebsites.net/api"]
       }
     }),
     
   ],
   providers: [
-    {provide: "baseUrl", useValue: "https://localhost:7165/api",multi:true }
+    {provide: "baseUrl", useValue: "https://imsprojectapi.azurewebsites.net/api",multi:true }
   ],
   bootstrap: [AppComponent]
 })
